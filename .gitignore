@@ -1,0 +1,8 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencias
+/node_modules
+
+# varian segun la entrada: imagenes y data
+/presentation/assets
+/presentation/data.js

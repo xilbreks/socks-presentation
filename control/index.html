@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <style>
+    .button {
+        background-color: #008080; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 36px;
+        width: 49%;
+        height: 400px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="prev()"><< Anterior</button>    
+    <button class="button" onclick="next()">>> Siguente</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var ip = location.host;
+        console.log('ip:',ip);
+        var socket = io.connect('http://'+ip);
+        function prev(){
+            console.log('prev');
+            socket.emit('prev',{});
+        }
+        function next(){
+            console.log('next');
+            socket.emit('next',{});
+        }
+    </script>
+</body>
+</html>

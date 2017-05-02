@@ -1,0 +1,29 @@
+{
+  "name": "socks-presentation",
+  "version": "1.0.0",
+  "description": "Para presentar diapositivas desde pdf",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xilbreks/socks-presentation.git"
+  },
+  "keywords": [
+    "reveal",
+    "node",
+    "socket.io"
+  ],
+  "author": "Yoel Antony Medina Jacho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xilbreks/socks-presentation/issues"
+  },
+  "homepage": "https://github.com/xilbreks/socks-presentation#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "pdf2image": "^1.1.0",
+    "socket.io": "^1.7.3"
+  }
+}

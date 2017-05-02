@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="reveal.css">
+	<link rel="stylesheet" href="theme/night.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="head.min.js"></script>
+    <script src="reveal.js"></script>
+    <script src="data.js"></script>
+    <script>
+        function iniciar(){            
+            var ip = location.host;
+            var socket = io.connect('http://'+ip);
+
+            var presentation='';
+            images.forEach(function(image,index,array) {
+                presentation = presentation + '<section data-background="assets/'+image.name+'" >';
+                presentation = presentation + '</section>';
+            });
+            document.getElementById("todo").innerHTML = presentation;
+
+            Reveal.initialize({
+                dependencies: [
+					{ src: 'fullscreen.js' }
+				]
+            });
+            socket.on('prev', function () {
+                Reveal.prev();
+                console.log('prev');
+            });
+            socket.on('next', function () {
+                Reveal.next();
+                console.log('next');
+            });
+        }
+	</script>
+</head>
+<body onload="iniciar()">
+    <div class="reveal">
+		<div class="slides" id="todo">
+		</div>
+	</div>
+</body>
+</html>
